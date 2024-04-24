@@ -73,9 +73,9 @@ nuevoElem->value = value;
 
 }
 
-/*void enlarge(HashMap * map) {
+void enlarge(HashMap * map) {
     enlarge_called = 1; //no borrar (testing purposes)
-  Pair **oldArray = map->buckets;
+  /*Pair **oldArray = map->buckets;
   int nuevaCap = map->capacity * 2;
   map->capacity = nuevaCap;
   Pair ** newArray = (Pair**) malloc(nuevaCap* sizeof(Pair*));
@@ -85,8 +85,8 @@ nuevoElem->value = value;
     insert(map, oldArray->key, oldArray->data);
   }
 
-
-}*/
+*/
+}
 
 
 HashMap * createMap(long capacity) {

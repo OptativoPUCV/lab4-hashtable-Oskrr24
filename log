@@ -39,3 +39,9 @@ test.c:(.text+0x11f0): undefined reference to `enlarge'
 collect2: error: ld returned 1 exit status
 Compilation failed
 ec0e730
+Wed 24 Apr 2024 07:42:24 PM UTC: 
+ hashmap.c | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+ tests:  1|5
+total_score: 10/70
+2a3578e
