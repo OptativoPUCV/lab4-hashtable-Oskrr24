@@ -79,6 +79,7 @@ void enlarge(HashMap * map) {
   Pair **oldArray = map->buckets;
   int nuevaCap = map->capacity * 2;
   map->capacity = nuevaCap;
+  map->size = 0;
   Pair ** newArray = (Pair**) malloc(nuevaCap* sizeof(Pair*));
 
   for(int i = 0; i < nuevaCap; i++){

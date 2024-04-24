@@ -76,3 +76,14 @@ hashmap.c:82:11: error: unused variable ‘newArray’ [-Werror=unused-variable]
 cc1: all warnings being treated as errors
 Compilation failed
 f1d1364
+Wed 24 Apr 2024 08:01:58 PM UTC: 
+ hashmap.c | 1 +
+ 1 file changed, 1 insertion(+)
+In file included from test.c:4:
+hashmap.c: In function ‘enlarge’:
+hashmap.c:83:11: error: unused variable ‘newArray’ [-Werror=unused-variable]
+   83 |   Pair ** newArray = (Pair**) malloc(nuevaCap* sizeof(Pair*));
+      |           ^~~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+803559f
