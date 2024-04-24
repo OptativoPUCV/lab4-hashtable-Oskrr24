@@ -39,13 +39,51 @@ int is_equal(void* key1, void* key2){
 }
 
 
+int solveCollision(HashMap *map, int pos){
+
+int posOriginal = pos;
+  pos = (pos +1) % map->capacity;
+  while(pos != posOriginal){
+
+    if(map->buckets[pos] == NULL || map->buckets[pos]->key == NULL){
+        return pos;
+    }
+  }
+  pos = (pos + 1) % map->capacity;
+
+return -1;
+}
 void insertMap(HashMap * map, char * key, void * value) {
+int pos = hash(key, map->capacity);
+if(map->buckets[pos] == NULL || strcmp(map->buckets[pos]->key, "-1") == 1){
+Pair* nuevoElem = malloc(sizeof(Pair));
+nuevoElem->value = value;
+  nuevoElem->key = key;
+  map->buckets[pos] = nuevoElem;
+} else{
+
+int nuevaPos = solveCollision(map, pos);
+Pair* nuevoElem = malloc(sizeof(Pair));
+nuevoElem->value = value;
+  nuevoElem->key = key;
+  map->buckets[nuevaPos] = nuevoElem;
+  
+}
 
 
 }
 
 void enlarge(HashMap * map) {
     enlarge_called = 1; //no borrar (testing purposes)
+  Pair **oldArray = map->buckets;
+  int nuevaCap = map->capacity * 2;
+  map->capacity = nuevaCap;
+  Pair ** newArray = (Pair**) malloc(nuevaCap* sizeof(Pair*));
+
+  for(int i = 0; i < nuevaCap; i++){
+
+    insert(map, oldArray->key, oldArray->data);
+  }
 
 
 }

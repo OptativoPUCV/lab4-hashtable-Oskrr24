@@ -8,3 +8,26 @@ Wed 24 Apr 2024 06:56:20 PM UTC:
  tests:  1|5
 total_score: 10/70
 15f3655
+Wed 24 Apr 2024 07:41:37 PM UTC: 
+ hashmap.c | 38 ++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 38 insertions(+)
+In file included from test.c:4:
+hashmap.c: In function ‘enlarge’:
+hashmap.c:85:5: error: implicit declaration of function ‘insert’; did you mean ‘insertMap’? [-Werror=implicit-function-declaration]
+   85 |     insert(map, oldArray->key, oldArray->data);
+      |     ^~~~~~
+      |     insertMap
+hashmap.c:85:25: error: ‘*oldArray’ is a pointer; did you mean to use ‘->’?
+   85 |     insert(map, oldArray->key, oldArray->data);
+      |                         ^~
+      |                         ->
+hashmap.c:85:40: error: ‘*oldArray’ is a pointer; did you mean to use ‘->’?
+   85 |     insert(map, oldArray->key, oldArray->data);
+      |                                        ^~
+      |                                        ->
+hashmap.c:81:11: error: unused variable ‘newArray’ [-Werror=unused-variable]
+   81 |   Pair ** newArray = (Pair**) malloc(nuevaCap* sizeof(Pair*));
+      |           ^~~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+103daa0
