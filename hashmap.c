@@ -83,7 +83,7 @@ void enlarge(HashMap * map) {
 
   for(int i = 0; i < nuevaCap; i++){
 
-    insertMap(map, oldArray[i]->key, oldArray[i]->data);
+    insertMap(map, oldArray[i]->key, oldArray[i]->value);
   }
 
 
