@@ -31,3 +31,11 @@ hashmap.c:81:11: error: unused variable ‘newArray’ [-Werror=unused-variable]
 cc1: all warnings being treated as errors
 Compilation failed
 103daa0
+Wed 24 Apr 2024 07:42:03 PM UTC: 
+ hashmap.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+/nix/store/039g378vc3pc3dvi9dzdlrd0i4q93qwf-binutils-2.39/bin/ld: /tmp/cc9EuYhU.o: in function `enlarge_test':
+test.c:(.text+0x11f0): undefined reference to `enlarge'
+collect2: error: ld returned 1 exit status
+Compilation failed
+ec0e730

@@ -73,7 +73,7 @@ nuevoElem->value = value;
 
 }
 
-void enlarge(HashMap * map) {
+/*void enlarge(HashMap * map) {
     enlarge_called = 1; //no borrar (testing purposes)
   Pair **oldArray = map->buckets;
   int nuevaCap = map->capacity * 2;
@@ -86,7 +86,7 @@ void enlarge(HashMap * map) {
   }
 
 
-}
+}*/
 
 
 HashMap * createMap(long capacity) {
