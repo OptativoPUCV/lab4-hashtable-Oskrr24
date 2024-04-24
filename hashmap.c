@@ -48,8 +48,9 @@ int posOriginal = pos;
     if(map->buckets[pos] == NULL || map->buckets[pos]->key == NULL){
         return pos;
     }
+    pos = (pos + 1) % map->capacity;
   }
-  pos = (pos + 1) % map->capacity;
+  
 
 return -1;
 }
@@ -60,16 +61,16 @@ Pair* nuevoElem = malloc(sizeof(Pair));
 nuevoElem->value = value;
   nuevoElem->key = key;
   map->buckets[pos] = nuevoElem;
+  map->size += 1;
 } else{
 
-int nuevaPos = solveCollision(map, pos);
-Pair* nuevoElem = malloc(sizeof(Pair));
-nuevoElem->value = value;
+  int nuevaPos = solveCollision(map, pos);
+  Pair* nuevoElem = malloc(sizeof(Pair));
+  nuevoElem->value = value;
   nuevoElem->key = key;
   map->buckets[nuevaPos] = nuevoElem;
-  
-}
-
+  map->size += 1;
+  }
 
 }
 
