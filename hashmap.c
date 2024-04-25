@@ -88,7 +88,7 @@ void enlarge(HashMap * map) {
     Pair *currentP = oldArray[i];
     while(currentP != NULL){
     
-    insertMap(map, oldArray[i]->key, oldArray[i]->value);
+    insertMap(map, currentP->key, currentP->value);
       currentP = (Pair*) currentP->value;
     }
   }
