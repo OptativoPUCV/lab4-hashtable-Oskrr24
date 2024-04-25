@@ -49,6 +49,7 @@ int solveCollision(HashMap *map, int pos){
     }
   return -1;
 }
+
 void insertMap(HashMap * map, char * key, void * value) {
 int pos = hash(key, map->capacity);
 if(map->buckets[pos] == NULL || strcmp(map->buckets[pos]->key, "-1") == 1){
@@ -115,12 +116,12 @@ Pair * searchMap(HashMap * map,  char * key) {
   int originalIndex = index;
 
   while(map->buckets[index] != NULL){
-    
+    index = solveCollision(map, index);
     if(strcmp(map->buckets[index]->key, key) == 0){
       map->current = index;
       return map->buckets[index];
     }  
-    index = solveCollision(map, index);
+    
     if(index == originalIndex) break;
   }
   map->current = index;
