@@ -84,7 +84,7 @@ void enlarge(HashMap * map) {
   Pair ** newArray = (Pair**) malloc(nuevaCap* sizeof(Pair*));
 
   for(int i = 0; i < nuevaCap; i++){
-    newArray[i] = 0;
+    newArray[i] = NULL;
   }
   map->buckets = newArray;
   for(int i = 0; i < oldCap; i++){
