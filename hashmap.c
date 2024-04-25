@@ -116,19 +116,20 @@ void eraseMap(HashMap * map,  char * key) {
 }
 
 Pair * searchMap(HashMap * map,  char * key) {   
-  int index = hash(key, map->capacity);
+    int index = hash(key, map->capacity);
 
-  while(map->buckets[index] != NULL){
-    
-    if(strcmp(map->buckets[index]->key, key) == 0 && map->buckets[index]->key != NULL){
-      map->current = index;
-      return map->buckets[index];
-    }  
-    
-    index = solveCollision(map, index);
-  }
-  map->current = index;
-  return NULL;
+    while(map->buckets[index] != NULL){
+        if(strcmp(map->buckets[index]->key, key) == 0 && map->buckets[index]->key != NULL){
+            map->current = index;
+            return map->buckets[index];
+        }  
+        index = solveCollision(map, index);
+        if(index == -1) {
+            break; 
+        }
+    }
+    map->current = index;
+    return NULL;
 }
 
 Pair * firstMap(HashMap * map) {
