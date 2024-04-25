@@ -85,7 +85,7 @@ void enlarge(HashMap * map) {
   Pair ** newArray = (Pair**) malloc(nuevaCap* sizeof(Pair*));
   map->buckets = newArray;
   for(int i = 0; i < nuevaCap; i++){
-  Pair *currentPair = oldArray[i];
+  //Pair *currentPair = oldArray[i];
     
     insertMap(map, oldArray[i]->key, oldArray[i]->value);
   }
