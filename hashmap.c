@@ -5,7 +5,6 @@
 #include <ctype.h>
 #include "hashmap.h"
 
-
 typedef struct HashMap HashMap;
 int enlarge_called=0;
 
@@ -76,7 +75,7 @@ nuevoElem->value = value;
 
 void enlarge(HashMap * map) {
   enlarge_called = 1; //no borrar (testing purposes)
-  Pair **oldArray = map->buckets;
+  /*Pair **oldArray = map->buckets;
   int nuevaCap = map->capacity * 2;
   
   map->capacity = nuevaCap;
@@ -92,7 +91,7 @@ void enlarge(HashMap * map) {
       currentP = (Pair*) currentP->value;
     }
   }
-  free(oldArray);
+  free(oldArray);*/
 
 }
 
