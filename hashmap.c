@@ -75,13 +75,17 @@ nuevoElem->value = value;
 
 void enlarge(HashMap * map) {
   enlarge_called = 1; //no borrar (testing purposes)
-  /*Pair **oldArray = map->buckets;
+  Pair **oldArray = map->buckets;
   int nuevaCap = map->capacity * 2;
   
   map->capacity = nuevaCap;
   map->size = 0;
   
   Pair ** newArray = (Pair**) malloc(nuevaCap* sizeof(Pair*));
+
+  for(int i = 0; i < nuevaCap; i++){
+    newArray[i] = 0;
+  }
   map->buckets = newArray;
   for(int i = 0; i < nuevaCap; i++){
     Pair *currentP = oldArray[i];
@@ -91,7 +95,7 @@ void enlarge(HashMap * map) {
       currentP = (Pair*) currentP->value;
     }
   }
-  free(oldArray);*/
+  free(oldArray);
 
 }
 
