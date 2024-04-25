@@ -89,11 +89,11 @@ void enlarge(HashMap * map) {
   map->buckets = newArray;
   for(int i = 0; i < nuevaCap; i++){
     Pair *currentP = oldArray[i];
-    while(currentP != NULL){
     
-    insertMap(map, currentP->key, currentP->value);
-      currentP = (Pair*) currentP->value;
-    }
+    if(currentP != NULL){
+      insertMap(map, currentP->key, currentP->value);
+      free(currentP);
+      }
   }
   free(oldArray);
 
