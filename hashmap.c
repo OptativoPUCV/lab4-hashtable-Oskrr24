@@ -117,7 +117,6 @@ void eraseMap(HashMap * map,  char * key) {
 
 Pair * searchMap(HashMap * map,  char * key) {   
   int index = hash(key, map->capacity);
-  int originalIndex = index;
 
   while(map->buckets[index] != NULL){
     
@@ -125,8 +124,8 @@ Pair * searchMap(HashMap * map,  char * key) {
       map->current = index;
       return map->buckets[index];
     }  
+    
     index = solveCollision(map, index);
-    if(index == originalIndex) break;
   }
   map->current = index;
   return NULL;
