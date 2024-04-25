@@ -128,7 +128,7 @@ Pair * searchMap(HashMap * map,  char * key) {
     index = solveCollision(map, index);
   }
   map->current = index;
-  return map->buckets[index];
+  return NULL;
 }
 
 Pair * firstMap(HashMap * map) {
