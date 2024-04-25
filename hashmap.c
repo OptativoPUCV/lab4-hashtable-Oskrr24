@@ -75,30 +75,33 @@ nuevoElem->value = value;
 }
 
 void enlarge(HashMap * map) {
-    enlarge_called = 1; //no borrar (testing purposes)
-  /*Pair **oldArray = map->buckets;
+  enlarge_called = 1; //no borrar (testing purposes)
+  Pair **oldArray = map->buckets;
   int nuevaCap = map->capacity * 2;
   
   map->capacity = nuevaCap;
   map->size = 0;
   
   Pair ** newArray = (Pair**) malloc(nuevaCap* sizeof(Pair*));
+  map->buckets = newArray;
   for(int i = 0; i < nuevaCap; i++){
-  
+    Pair *currentP = oldArray[i];
+    while(currentP != NULL){
     
     insertMap(map, oldArray[i]->key, oldArray[i]->value);
+      currentP = (Pair*) currentP->value;
+    }
   }
   free(oldArray);
-*/
-}
 
+}
 
 HashMap * createMap(long capacity) {
    HashMap *mapa = (HashMap*) malloc(sizeof(HashMap));
    mapa->buckets = (Pair**) calloc(capacity, sizeof(Pair*));
    mapa->size = 0;
-  mapa->capacity = capacity;
-  mapa->current = -1;
+   mapa->capacity = capacity;
+   mapa->current = -1;
 
     return mapa;
 }
