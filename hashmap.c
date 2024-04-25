@@ -78,12 +78,15 @@ void enlarge(HashMap * map) {
     enlarge_called = 1; //no borrar (testing purposes)
   Pair **oldArray = map->buckets;
   int nuevaCap = map->capacity * 2;
+  
   map->capacity = nuevaCap;
   map->size = 0;
+  
   Pair ** newArray = (Pair**) malloc(nuevaCap* sizeof(Pair*));
   map->buckets = newArray;
   for(int i = 0; i < nuevaCap; i++){
-
+  Pair *currentPair = oldArray[i];
+    
     insertMap(map, oldArray[i]->key, oldArray[i]->value);
   }
   free(oldArray);
