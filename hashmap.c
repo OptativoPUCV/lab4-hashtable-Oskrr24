@@ -117,13 +117,13 @@ void eraseMap(HashMap * map,  char * key) {
 
 Pair * searchMap(HashMap * map,  char * key) {   
   int index = hash(key, map->capacity);
-  for(index; index < map->capacity; index++){
+  for(int i = index; i < map->capacity; i++){
     
-    if(is_equal(map->buckets[index]->key, key)){
-      map->current = index;
+    if(is_equal(map->buckets[i]->key, key)){
+      map->current = i;
       return map->buckets[index];
     }
-    index = solveCollision(map, index); 
+    index = solveCollision(map, i); 
   }
   //map->current = -1;
   return NULL;
