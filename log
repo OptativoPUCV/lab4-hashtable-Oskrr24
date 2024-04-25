@@ -258,3 +258,14 @@ Thu 25 Apr 2024 02:40:23 PM UTC:
  tests:  13|2
 total_score: 50/70
 3145947
+Thu 25 Apr 2024 02:43:05 PM UTC: 
+ hashmap.c | 7 ++-----
+ 1 file changed, 2 insertions(+), 5 deletions(-)
+In file included from test.c:4:
+hashmap.c: In function ‘searchMap’:
+hashmap.c:120:3: error: statement with no effect [-Werror=unused-value]
+  120 |   for(index; index < map->capacity; index++){
+      |   ^~~
+cc1: all warnings being treated as errors
+Compilation failed
+71f6e25
