@@ -42,7 +42,7 @@ int solveCollision(HashMap *map, int pos){
     pos = (pos +1) % map->capacity;
     while(pos != posOriginal){
   
-      if(map->buckets[pos] == NULL || map->buckets[pos]->key == NULL){
+        if (map->buckets[pos] == NULL || map->buckets[pos]->key == NULL) {
           return pos;
       }
       pos = (pos + 1) % map->capacity;
@@ -120,7 +120,7 @@ Pair * searchMap(HashMap * map,  char * key) {
 
   while(map->buckets[index] != NULL){
     
-    if(strcmp(map->buckets[index]->key, key) == 0){
+    if(strcmp(map->buckets[index]->key, key) == 0 && map->buckets[index]->key != NULL){
       map->current = index;
       return map->buckets[index];
     }  
