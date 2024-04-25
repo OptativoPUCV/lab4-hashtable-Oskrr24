@@ -76,7 +76,7 @@ nuevoElem->value = value;
 
 void enlarge(HashMap * map) {
     enlarge_called = 1; //no borrar (testing purposes)
-  Pair **oldArray = map->buckets;
+  /*Pair **oldArray = map->buckets;
   int nuevaCap = map->capacity * 2;
   
   map->capacity = nuevaCap;
@@ -89,7 +89,7 @@ void enlarge(HashMap * map) {
     insertMap(map, oldArray[i]->key, oldArray[i]->value);
   }
   free(oldArray);
-
+*/
 }
 
 
