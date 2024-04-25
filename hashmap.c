@@ -116,12 +116,12 @@ Pair * searchMap(HashMap * map,  char * key) {
   int originalIndex = index;
 
   while(map->buckets[index] != NULL){
-    index = solveCollision(map, index);
+    
     if(strcmp(map->buckets[index]->key, key) == 0){
       map->current = index;
       return map->buckets[index];
     }  
-    
+    index = solveCollision(map, index);
     if(index == originalIndex) break;
   }
   map->current = index;
