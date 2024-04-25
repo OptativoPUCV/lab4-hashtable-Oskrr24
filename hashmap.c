@@ -37,21 +37,17 @@ int is_equal(void* key1, void* key2){
     return 0;
 }
 
-
 int solveCollision(HashMap *map, int pos){
-
-int posOriginal = pos;
-  pos = (pos +1) % map->capacity;
-  while(pos != posOriginal){
-
-    if(map->buckets[pos] == NULL || map->buckets[pos]->key == NULL){
-        return pos;
-    }
-    pos = (pos + 1) % map->capacity;
-  }
+  int posOriginal = pos;
+    pos = (pos +1) % map->capacity;
+    while(pos != posOriginal){
   
-
-return -1;
+      if(map->buckets[pos] == NULL || map->buckets[pos]->key == NULL){
+          return pos;
+      }
+      pos = (pos + 1) % map->capacity;
+    }
+  return -1;
 }
 void insertMap(HashMap * map, char * key, void * value) {
 int pos = hash(key, map->capacity);
@@ -115,9 +111,18 @@ void eraseMap(HashMap * map,  char * key) {
 }
 
 Pair * searchMap(HashMap * map,  char * key) {   
+  int index = hash(key, map->capacity);
 
-
-    return NULL;
+  while(map->buckets[index] != NULL){
+    
+    if(strcmp(map->buckets[index]->key, key) == 0){
+      map->current = index;
+      return map->buckets[index];
+    }  
+    index = solveCollision(map, index);
+  }
+  map->current = index;
+  return NULL;
 }
 
 Pair * firstMap(HashMap * map) {
